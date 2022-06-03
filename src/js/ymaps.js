@@ -6,7 +6,7 @@ let clusterer
 function mapInit() {
   ymaps.ready(() => {
     const myMap = new ymaps.Map('map', {
-      center: [46.223442, 39.833914],
+      center: [45.04469, 38.977248],
       zoom: 14,
       controls: ['zoomControl'],
     });
@@ -53,22 +53,13 @@ function getReviewsFromLS() {
 function getGeoObjects(map) {
   const geoObjects = []
   for (const review of getReviewsFromLS() || []) {
-    const placemark = new ymaps.Placemark((review.coords), {},
-
-      {
-        iconLayout: 'default#image',
-        iconImageHref: 'https://glassceramics.ru/nyan.png',
-        iconImageSize: [70, 41],
-        iconImageOffset: [10, 0]
-      });
-
+    const placemark = new ymaps.Placemark(review.coords);
     placemark.events.add('click', e => {
       e.stopPropagation();
       openBalloon(map, e.get('coords'), [e.get('target')])
     })
     geoObjects.push(placemark);
-  }
-
+  };
   clusterer.removeAll()
   map.geoObjects.remove(clusterer)
   clusterer.add(geoObjects)

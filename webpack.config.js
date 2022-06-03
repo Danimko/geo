@@ -54,7 +54,7 @@ module.exports = {
 
     plugins: [
         new HtmlPlugin({
-            title: 'Оставь отзыв! ✨',
+            title: 'Оставьте свой отзыв',
             template: 'index.hbs',
             favicon: "./src/img/favicon.ico"
         }),

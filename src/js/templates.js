@@ -14,6 +14,6 @@ export const formTemplate = `
     <textarea placeholder="Оставить отзыв" name="review" class="form__input form__input--textarea"></textarea>
   </div>
 
-  <button id="add-btn" class="btn">Добавить</button>
+  <button id="add-button" class="button">Добавить</button>
 </form>
 `
